@@ -1,51 +1,135 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OneGame — Магазин игр</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 0; }
-    header { background: #1e1e1e; padding: 20px; text-align: center; }
-    h1 { color: #7f5af0; }
-    .section { padding: 20px; }
-    .card { background: #2a2a2a; border-radius: 10px; padding: 10px; margin: 10px 0; }
-    .btn { background: #7f5af0; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 24px;
+      color: #4A00E0;
+      margin: 0;
+    }
+    .btn {
+      background: #4A00E0;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .section {
+      padding: 30px 20px;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    .card p {
+      margin: 0 0 10px;
+      font-weight: bold;
+      color: #4A00E0;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>OneGame</h1>
-    <p>Цифровые игры и подарочные карты для PlayStation</p>
-  </header>
 
-  <div class="section">
-    <h2>Популярные игры (Турция)</h2>
-    <div class="card">GTA V — 729 ₽</div>
-    <div class="card">Red Dead Redemption 2 — 729 ₽</div>
-    <div class="card">Spider-Man: Miles Morales — 729 ₽</div>
-    <div class="card">God of War: Ragnarök — 1479 ₽</div>
-    <div class="card">EA FC 25 Ultimate — 1479 ₽</div>
-  </div>
+<header>
+  <h1>OneGame</h1>
+  <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
+</header>
 
-  <div class="section">
-    <h2>Подарочные карты (Турция)</h2>
-    <div class="card">250 лир — 729 ₽</div>
-    <div class="card">500 лир — 1479 ₽</div>
-    <div class="card">750 лир — 2299 ₽</div>
-    <div class="card">1000 лир — 2999 ₽</div>
+<div class="section">
+  <h2>Популярные игры</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0212/l2V4drPUDY7ML9sXZBMCegKa.png" alt="GTA V">
+      <h3>GTA V</h3>
+      <p>729 ₽</p>
+      <a class="btn" href="https://t.me/onegame_support">Купить</a>
+    </div>
+    <div class="card">
+      <img src="https://cdn1.epicgames.com/spt-assets/445a38d79db4484082525f9c0e01f8a2/red-dead-redemption-2-bvvgr.png" alt="Red Dead Redemption 2">
+      <h3>Red Dead Redemption 2</h3>
+      <p>729 ₽</p>
+      <a class="btn" href="https://t.me/onegame_support">Купить</a>
+    </div>
+    <div class="card">
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0721/zf98W9FREhWo0RsmO9QgCb0B.png" alt="Spider-Man Miles Morales">
+      <h3>Spider-Man: Miles Morales</h3>
+      <p>729 ₽</p>
+      <a class="btn" href="https://t.me/onegame_support">Купить</a>
+    </div>
   </div>
+</div>
 
-  <div class="section">
-    <h2>Подарочные карты (Индия)</h2>
-    <div class="card">1000 INR — 1240 ₽</div>
-    <div class="card">2000 INR — 2380 ₽</div>
-    <div class="card">3000 INR — 3490 ₽</div>
+<div class="section">
+  <h2>Подарочные карты (Турция)</h2>
+  <div class="cards">
+    <div class="card"><h3>250 лир</h3><p>729 ₽</p></div>
+    <div class="card"><h3>500 лир</h3><p>1479 ₽</p></div>
+    <div class="card"><h3>750 лир</h3><p>2299 ₽</p></div>
+    <div class="card"><h3>1000 лир</h3><p>2999 ₽</p></div>
   </div>
+</div>
 
-  <div class="section">
-    <p><strong>Создание иностранного аккаунта бесплатно при покупке!</strong></p>
-    <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
+<div class="section">
+  <h2>Подарочные карты (Индия)</h2>
+  <div class="cards">
+    <div class="card"><h3>1000 INR</h3><p>1240 ₽</p></div>
+    <div class="card"><h3>2000 INR</h3><p>2380 ₽</p></div>
+    <div class="card"><h3>3000 INR</h3><p>3490 ₽</p></div>
   </div>
+</div>
+
+<div class="footer">
+  Создание иностранного аккаунта — бесплатно при покупке!<br>
+  © OneGame, 2025
+</div>
+
 </body>
 </html>
