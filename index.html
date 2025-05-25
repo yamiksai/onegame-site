@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
+      background: #f2f4f8;
       margin: 0;
       padding: 0;
       color: #222;
@@ -22,11 +22,11 @@
     }
     header h1 {
       font-size: 24px;
-      color: #4A00E0;
+      color: #5c4dff;
       margin: 0;
     }
     .btn {
-      background: #4A00E0;
+      background: #5c4dff;
       color: white;
       padding: 10px 20px;
       border-radius: 6px;
@@ -36,43 +36,52 @@
       padding: 30px 20px;
     }
     .section h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
+      font-size: 22px;
+      margin-bottom: 20px;
       color: #333;
     }
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
     }
     .card {
       background: #ffffff;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .card img {
       width: 100%;
       border-radius: 6px;
       margin-bottom: 10px;
+      height: 150px;
+      object-fit: cover;
     }
     .card h3 {
-      margin: 0 0 5px;
-      font-size: 16px;
+      margin: 0 0 8px;
+      font-size: 18px;
     }
     .card p {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       font-weight: bold;
-      color: #4A00E0;
+      color: #5c4dff;
     }
     .footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      color: #666;
+      background: #ffffff;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -87,19 +96,19 @@
   <h2>Популярные игры</h2>
   <div class="cards">
     <div class="card">
-      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0212/l2V4drPUDY7ML9sXZBMCegKa.png" alt="GTA V">
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/3000/SR1Ae3nQ3TC8qzjcE8QyFcU0.png" alt="GTA V">
       <h3>GTA V</h3>
       <p>729 ₽</p>
       <a class="btn" href="https://t.me/onegame_support">Купить</a>
     </div>
     <div class="card">
-      <img src="https://cdn1.epicgames.com/spt-assets/445a38d79db4484082525f9c0e01f8a2/red-dead-redemption-2-bvvgr.png" alt="Red Dead Redemption 2">
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202207/2519/WPDbYIOF1fNBvYynwxZZaPzW.png" alt="Red Dead Redemption 2">
       <h3>Red Dead Redemption 2</h3>
       <p>729 ₽</p>
       <a class="btn" href="https://t.me/onegame_support">Купить</a>
     </div>
     <div class="card">
-      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0721/zf98W9FREhWo0RsmO9QgCb0B.png" alt="Spider-Man Miles Morales">
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/1719/DIyKxz1r2frkV7FADoShAboE.png" alt="Spider-Man Miles Morales">
       <h3>Spider-Man: Miles Morales</h3>
       <p>729 ₽</p>
       <a class="btn" href="https://t.me/onegame_support">Купить</a>
@@ -120,9 +129,31 @@
 <div class="section">
   <h2>Подарочные карты (Индия)</h2>
   <div class="cards">
-    <div class="card"><h3>1000 INR</h3><p>1240 ₽</p></div>
-    <div class="card"><h3>2000 INR</h3><p>2380 ₽</p></div>
-    <div class="card"><h3>3000 INR</h3><p>3490 ₽</p></div>
+    <div class="card">
+      <img src="https://onegame-site.vercel.app/1000.png" alt="1000 INR">
+      <h3>1000 INR</h3>
+      <p>1240 ₽</p>
+    </div>
+    <div class="card">
+      <img src="https://onegame-site.vercel.app/2000.png" alt="2000 INR">
+      <h3>2000 INR</h3>
+      <p>2380 ₽</p>
+    </div>
+    <div class="card">
+      <img src="https://onegame-site.vercel.app/3000.png" alt="3000 INR">
+      <h3>3000 INR</h3>
+      <p>3490 ₽</p>
+    </div>
+    <div class="card">
+      <img src="https://onegame-site.vercel.app/4000.png" alt="4000 INR">
+      <h3>4000 INR</h3>
+      <p>4740 ₽</p>
+    </div>
+    <div class="card">
+      <img src="https://onegame-site.vercel.app/5000.png" alt="5000 INR">
+      <h3>5000 INR</h3>
+      <p>5990 ₽</p>
+    </div>
   </div>
 </div>
 
