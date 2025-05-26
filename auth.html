@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — OneGame</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0f11;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-box {
+      background-color: #1c1d22;
+      padding: 32px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .auth-box h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #4ade80;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: none;
+      background: #2a2b31;
+      color: white;
+      font-size: 15px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .or {
+      text-align: center;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .socials button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .socials button.telegram { background: #229ED9; color: white; }
+    .socials button.google { background: white; color: #444; }
+    .socials button.discord { background: #5865F2; color: white; }
+    .socials button.vk { background: #4C75A3; color: white; }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+    <h1>Войти в OneGame</h1>
+    <input type="email" placeholder="Электронная почта" />
+    <input type="password" placeholder="Пароль" />
+    <button class="btn">Войти</button>
+    <div class="or">или через</div>
+    <div class="socials">
+      <button class="telegram">Телеграм</button>
+      <button class="google">Google</button>
+      <button class="discord">Discord</button>
+      <button class="vk">Вконтакте</button>
+    </div>
+  </div>
+</body>
+</html>
