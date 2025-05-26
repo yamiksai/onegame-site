@@ -7,27 +7,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-dark: #0f1117;
-      --text-dark: #ffffff;
-      --card-dark: #1a1c22;
-      --primary: #4f46e5;
-      --highlight: #00ff91;
+      --bg: #0f1117;
+      --text: #ffffff;
+      --card: #1a1d24;
+      --primary: #3b82f6;
+      --accent: #22c55e;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
+      background-color: var(--bg);
+      color: var(--text);
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background-color: var(--card-dark);
+      padding: 16px;
+      background-color: var(--card);
     }
 
     .logo {
@@ -36,12 +36,13 @@
       color: var(--primary);
     }
 
-    .btn-auth {
-      background-color: var(--primary);
-      color: #fff;
-      padding: 10px 20px;
+    .auth-button {
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
       border-radius: 8px;
       text-decoration: none;
+      font-weight: 600;
     }
 
     .container {
@@ -51,9 +52,8 @@
     }
 
     h2 {
-      margin-top: 40px;
+      margin-top: 32px;
       margin-bottom: 16px;
-      color: var(--highlight);
     }
 
     .grid {
@@ -63,7 +63,7 @@
     }
 
     .card {
-      background-color: var(--card-dark);
+      background-color: var(--card);
       border-radius: 10px;
       overflow: hidden;
       text-align: center;
@@ -79,21 +79,14 @@
       display: block;
       margin-top: 8px;
       font-weight: 600;
-      color: #fff;
+      color: white;
     }
 
-    .faq, .auth, .profile {
-      background: var(--card-dark);
+    .faq {
+      background: var(--card);
       border-radius: 12px;
       padding: 16px;
       margin-top: 32px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 14px;
-      padding: 24px;
-      color: #aaa;
     }
 
     .btn {
@@ -106,26 +99,22 @@
       text-decoration: none;
     }
 
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 16px;
-      border-radius: 6px;
-      border: none;
-      background: #2a2d34;
-      color: #fff;
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 24px;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">OneGame</div>
-    <a href="#auth" class="btn-auth">Вход</a>
+    <a href="auth.html" class="auth-button">Вход</a>
   </header>
 
   <div class="container">
-    <h2>🇮🇳 Индия</h2>
+    <h2>🇮🇳 Индия — подарочные карты PSN</h2>
     <div class="grid">
       <div class="card"><img src="1000.png"><span>1240 ₽</span></div>
       <div class="card"><img src="2000.png"><span>2380 ₽</span></div>
@@ -134,7 +123,7 @@
       <div class="card"><img src="5000.png"><span>5990 ₽</span></div>
     </div>
 
-    <h2>🇹🇷 Турция</h2>
+    <h2>🇹🇷 Турция — подарочные карты PSN</h2>
     <div class="grid">
       <div class="card"><img src="250lir.png"><span>729 ₽</span></div>
       <div class="card"><img src="500lir.png"><span>1479 ₽</span></div>
@@ -143,22 +132,16 @@
       <div class="card"><img src="1500lir.png"><span>4399 ₽</span></div>
       <div class="card"><img src="2000lir.png"><span>5799 ₽</span></div>
       <div class="card"><img src="3000lir.png"><span>8299 ₽</span></div>
-      <div class="card"><img src="4000lir.png"><span>10 799 ₽</span></div>
-      <div class="card"><img src="5000lir.png"><span>13 299 ₽</span></div>
+      <div class="card"><img src="4000lir.png"><span>10,799 ₽</span></div>
+      <div class="card"><img src="5000lir.png"><span>13,299 ₽</span></div>
     </div>
 
     <div class="faq">
       <h3>FAQ</h3>
-      <p>Создание иностранного аккаунта при покупке вместе с товаром в нашем магазине — <strong>бесплатно</strong> 🎁</p>
+      <p style="color: var(--accent);">Создание иностранного аккаунта бесплатно при покупке 🎁</p>
     </div>
 
-    <div class="auth" id="auth">
-      <h3>Регистрация / Вход</h3>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Пароль">
-      <button class="btn">Зарегистрироваться</button>
-      <button class="btn">Войти</button>
-    </div>
+    <a href="https://t.me/onegame_support" class="btn">Поддержка в Telegram</a>
   </div>
 
   <footer>
