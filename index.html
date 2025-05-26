@@ -1,103 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OneGame — Турецкие карты</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneGame — Турция</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      color: #111;
+    :root {
+      --bg-light: #f7f8fc;
+      --bg-dark: #111827;
+      --text-light: #1f2937;
+      --text-dark: #f3f4f6;
+      --card-light: #ffffff;
+      --card-dark: #1f2937;
+      --primary: #4f46e5;
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: 0.3s ease;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--card-light);
+      border-bottom: 1px solid #ddd;
+    }
+
+    body.dark header {
+      background-color: var(--card-dark);
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 18px;
+    }
+
     .container {
       max-width: 960px;
       margin: auto;
       padding: 24px 16px;
     }
-    .title {
-      font-size: 22px;
-      font-weight: 600;
+
+    h2 {
+      margin-top: 40px;
       margin-bottom: 16px;
     }
-    .voucher-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
     }
-    .voucher {
-      background: white;
-      border-radius: 12px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: calc(33% - 12px);
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      transition: 0.2s ease;
+
+    .card {
+      background-color: var(--card-light);
+      border-radius: 10px;
+      overflow: hidden;
       text-align: center;
+      padding: 10px;
+      transition: 0.2s ease;
     }
-    .voucher img {
+
+    body.dark .card {
+      background-color: var(--card-dark);
+    }
+
+    .card img {
       width: 100%;
+      height: auto;
+    }
+
+    .card span {
+      display: block;
+      margin-top: 8px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 24px;
+      color: #888;
+    }
+
+    .faq {
+      background: var(--card-light);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 32px;
+    }
+
+    body.dark .faq {
+      background: var(--card-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
       border-radius: 8px;
-    }
-    .voucher p {
-      margin: 8px 0 0;
-      font-weight: bold;
-      color: #4A00E0;
-    }
-    @media (max-width: 600px) {
-      .voucher {
-        width: 100%;
-      }
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">OneGame</div>
+    <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+  </header>
 
-<div class="container">
-  <div class="title">Подарочные карты PSN — Турция</div>
-  <div class="voucher-grid">
-    <div class="voucher">
-      <img src="1000lir.png" alt="1000 лир">
-      <p>1000 лир — 2999 ₽</p>
+  <div class="container">
+    <h2>Турецкие подарочные карты PSN</h2>
+    <div class="grid">
+      <div class="card"><img src="250lir.png"><span>250 лир — 729 ₽</span></div>
+      <div class="card"><img src="500lir.png"><span>500 лир — 1479 ₽</span></div>
+      <div class="card"><img src="750lir.png"><span>750 лир — 2299 ₽</span></div>
+      <div class="card"><img src="1000lir.png"><span>1000 лир — 2999 ₽</span></div>
+      <div class="card"><img src="1500lir.png"><span>1500 лир — 4399 ₽</span></div>
+      <div class="card"><img src="2000lir.png"><span>2000 лир — 5799 ₽</span></div>
+      <div class="card"><img src="3000lir.png"><span>3000 лир — 8299 ₽</span></div>
+      <div class="card"><img src="4000lir.png"><span>4000 лир — 10,799 ₽</span></div>
+      <div class="card"><img src="5000lir.png"><span>5000 лир — 13,299 ₽</span></div>
     </div>
-    <div class="voucher">
-      <img src="1500lir.png" alt="1500 лир">
-      <p>1500 лир — 4399 ₽</p>
+
+    <div class="faq">
+      <h3>FAQ</h3>
+      <p>Создание иностранного аккаунта при покупке вместе с товаром в нашем магазине — <strong>бесплатно</strong> 🎁</p>
     </div>
-    <div class="voucher">
-      <img src="2000lir.png" alt="2000 лир">
-      <p>2000 лир — 5799 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="250lir.png" alt="250 лир">
-      <p>250 лир — 729 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="3000lir.png" alt="3000 лир">
-      <p>3000 лир — 8299 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="4000lir.png" alt="4000 лир">
-      <p>4000 лир — 10,799 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="500lir.png" alt="500 лир">
-      <p>500 лир — 1479 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="5000lir.png" alt="5000 лир">
-      <p>5000 лир — 13,299 ₽</p>
-    </div>
-    <div class="voucher">
-      <img src="750lir.png" alt="750 лир">
-      <p>750 лир — 2299 ₽</p>
-    </div>
+
+    <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
   </div>
-</div>
 
+  <footer>
+    OneGame © 2025 — Все права защищены
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
