@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | OneGame</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #111827;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .auth-box {
+      background-color: #1f2937;
+      padding: 32px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #374151;
+      color: #fff;
+      font-size: 16px;
+    }
+    .btn-main {
+      width: 100%;
+      padding: 12px;
+      background-color: #2563eb;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+    .or {
+      text-align: center;
+      margin: 12px 0;
+      color: #9ca3af;
+    }
+    .login-option {
+      background-color: #374151;
+      color: #f3f4f6;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .login-option:hover {
+      background-color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+    <h2>Вход в OneGame</h2>
+    <input type="email" placeholder="Электронная почта">
+    <button class="btn-main">Войти</button>
+    <div class="or">или через</div>
+    <div class="login-option">Telegram</div>
+    <div class="login-option">Google</div>
+    <div class="login-option">Discord</div>
+    <div class="login-option">ВКонтакте</div>
+  </div>
+</body>
+</html>
