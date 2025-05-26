@@ -7,25 +7,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-light: #f7f8fc;
-      --bg-dark: #111827;
-      --text-light: #1f2937;
-      --text-dark: #f3f4f6;
-      --card-light: #ffffff;
-      --card-dark: #1f2937;
+      --bg-dark: #0f1117;
+      --text-dark: #ffffff;
+      --card-dark: #1a1c22;
       --primary: #4f46e5;
+      --highlight: #00ff91;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      transition: 0.3s ease;
-    }
-
-    body.dark {
       background-color: var(--bg-dark);
       color: var(--text-dark);
     }
@@ -35,13 +27,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      background-color: var(--card-light);
-      border-bottom: 1px solid #ddd;
-    }
-
-    body.dark header {
       background-color: var(--card-dark);
-      border-bottom: 1px solid #333;
     }
 
     .logo {
@@ -50,9 +36,12 @@
       color: var(--primary);
     }
 
-    .theme-toggle {
-      cursor: pointer;
-      font-size: 18px;
+    .btn-auth {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
     }
 
     .container {
@@ -64,6 +53,7 @@
     h2 {
       margin-top: 40px;
       margin-bottom: 16px;
+      color: var(--highlight);
     }
 
     .grid {
@@ -73,16 +63,11 @@
     }
 
     .card {
-      background-color: var(--card-light);
+      background-color: var(--card-dark);
       border-radius: 10px;
       overflow: hidden;
       text-align: center;
       padding: 10px;
-      transition: 0.2s ease;
-    }
-
-    body.dark .card {
-      background-color: var(--card-dark);
     }
 
     .card img {
@@ -94,25 +79,21 @@
       display: block;
       margin-top: 8px;
       font-weight: 600;
-      color: var(--primary);
+      color: #fff;
     }
 
-    .faq, .auth, .profile, .support, .reviews {
-      background: var(--card-light);
+    .faq, .auth, .profile {
+      background: var(--card-dark);
       border-radius: 12px;
       padding: 16px;
       margin-top: 32px;
-    }
-
-    body.dark .faq, body.dark .auth, body.dark .profile, body.dark .support, body.dark .reviews {
-      background: var(--card-dark);
     }
 
     footer {
       text-align: center;
       font-size: 14px;
       padding: 24px;
-      color: #888;
+      color: #aaa;
     }
 
     .btn {
@@ -131,45 +112,39 @@
       margin-top: 8px;
       margin-bottom: 16px;
       border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      cursor: pointer;
+      border: none;
+      background: #2a2d34;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">OneGame</div>
-    <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+    <a href="#auth" class="btn-auth">Вход</a>
   </header>
 
   <div class="container">
-    <h2>Индийские подарочные карты PSN</h2>
+    <h2>🇮🇳 Индия</h2>
     <div class="grid">
-      <div class="card"><img src="1000.png"><span>1000 INR — 1240 ₽</span></div>
-      <div class="card"><img src="2000.png"><span>2000 INR — 2380 ₽</span></div>
-      <div class="card"><img src="3000.png"><span>3000 INR — 3490 ₽</span></div>
-      <div class="card"><img src="4000.png"><span>4000 INR — 4740 ₽</span></div>
-      <div class="card"><img src="5000.png"><span>5000 INR — 5990 ₽</span></div>
+      <div class="card"><img src="1000.png"><span>1240 ₽</span></div>
+      <div class="card"><img src="2000.png"><span>2380 ₽</span></div>
+      <div class="card"><img src="3000.png"><span>3490 ₽</span></div>
+      <div class="card"><img src="4000.png"><span>4740 ₽</span></div>
+      <div class="card"><img src="5000.png"><span>5990 ₽</span></div>
     </div>
 
-    <h2>Турецкие подарочные карты PSN</h2>
+    <h2>🇹🇷 Турция</h2>
     <div class="grid">
-      <div class="card"><img src="250lir.png"><span>250 лир — 729 ₽</span></div>
-      <div class="card"><img src="500lir.png"><span>500 лир — 1479 ₽</span></div>
-      <div class="card"><img src="750lir.png"><span>750 лир — 2299 ₽</span></div>
-      <div class="card"><img src="1000lir.png"><span>1000 лир — 2999 ₽</span></div>
-      <div class="card"><img src="1500lir.png"><span>1500 лир — 4399 ₽</span></div>
-      <div class="card"><img src="2000lir.png"><span>2000 лир — 5799 ₽</span></div>
-      <div class="card"><img src="3000lir.png"><span>3000 лир — 8299 ₽</span></div>
-      <div class="card"><img src="4000lir.png"><span>4000 лир — 10,799 ₽</span></div>
-      <div class="card"><img src="5000lir.png"><span>5000 лир — 13,299 ₽</span></div>
+      <div class="card"><img src="250lir.png"><span>729 ₽</span></div>
+      <div class="card"><img src="500lir.png"><span>1479 ₽</span></div>
+      <div class="card"><img src="750lir.png"><span>2299 ₽</span></div>
+      <div class="card"><img src="1000lir.png"><span>2999 ₽</span></div>
+      <div class="card"><img src="1500lir.png"><span>4399 ₽</span></div>
+      <div class="card"><img src="2000lir.png"><span>5799 ₽</span></div>
+      <div class="card"><img src="3000lir.png"><span>8299 ₽</span></div>
+      <div class="card"><img src="4000lir.png"><span>10 799 ₽</span></div>
+      <div class="card"><img src="5000lir.png"><span>13 299 ₽</span></div>
     </div>
 
     <div class="faq">
@@ -177,50 +152,17 @@
       <p>Создание иностранного аккаунта при покупке вместе с товаром в нашем магазине — <strong>бесплатно</strong> 🎁</p>
     </div>
 
-    <div class="auth">
+    <div class="auth" id="auth">
       <h3>Регистрация / Вход</h3>
       <input type="email" placeholder="Email">
       <input type="password" placeholder="Пароль">
       <button class="btn">Зарегистрироваться</button>
       <button class="btn">Войти</button>
     </div>
-
-    <div class="profile">
-      <h3>Профиль</h3>
-      <label for="avatar-input">
-        <img src="avatar.png" class="avatar" alt="Аватар">
-      </label>
-      <input type="file" id="avatar-input" style="display:none">
-      <input type="text" placeholder="Никнейм">
-      <button class="btn">Сохранить</button>
-      <button class="btn" style="background:#e11d48;">Выйти</button>
-    </div>
-
-    <div class="reviews">
-      <h3>Отзывы</h3>
-      <p>Нам бесконечно важно мнение клиентов нашего сервиса пополнения для игр. Мы регулярно работаем над качеством и улучшением вашего опыта использования магазина, поэтому мы будем очень рады, если вы поделитесь своим отзывом с другими пользователями (｡•́︿•̀｡)</p>
-      <a href="https://t.me/oneGGame" class="btn">Читать отзывы в Telegram</a>
-    </div>
-
-    <div class="support">
-      <h3>Поддержка</h3>
-      <p>Проблема с заказом? Если ваш заказ находится в доставке, то пожалуйста, ожидайте его завершения. В скором времени он будет доставлен. Во время игровых событий время доставки может быть увеличено.</p>
-      <p><strong>Режим работы поддержки:</strong><br>9:00 — 23:59 (MSK)</p>
-      <a href="support.html" class="btn">Написать поддержке</a>
-      <a href="https://t.me/onegame_support" class="btn">Поддержка в Telegram</a>
-    </div>
-
-    <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
   </div>
 
   <footer>
     OneGame © 2025 — Все права защищены
   </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
 </body>
 </html>
