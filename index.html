@@ -49,6 +49,7 @@
     .logo {
       font-size: 22px;
       font-weight: bold;
+      color: var(--primary);
     }
 
     .nav {
@@ -91,8 +92,12 @@
 
     h1 {
       font-size: 22px;
-      color: var(--green);
+      color: white;
       margin-top: 32px;
+    }
+
+    body.light h1 {
+      color: black;
     }
 
     .grid {
@@ -120,6 +125,7 @@
       display: block;
       margin-top: 8px;
       font-weight: 600;
+      color: white;
     }
 
     body.light .card {
@@ -128,7 +134,7 @@
     }
 
     body.light .card span {
-      color: var(--text-light);
+      color: black;
     }
 
     footer {
@@ -150,12 +156,12 @@
     </nav>
     <div class="actions">
       <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
-      <button class="btn" onclick="location.href='login.html'">Войти</button>
+      <button class="btn" onclick="location.href='auth.html'">Войти</button>
     </div>
   </header>
 
   <div class="container">
-    <h1>Подарочные карты для PlayStation (Индия)</h1>
+    <h1>🇮🇳 Подарочные карты PSN Индия</h1>
     <div class="grid">
       <div class="card"><img src="1000.png"><span>1240 ₽</span></div>
       <div class="card"><img src="2000.png"><span>2380 ₽</span></div>
@@ -164,7 +170,7 @@
       <div class="card"><img src="5000.png"><span>5990 ₽</span></div>
     </div>
 
-    <h1>Подарочные карты для PlayStation (Турция)</h1>
+    <h1>🇹🇷 Подарочные карты PSN Турция</h1>
     <div class="grid">
       <div class="card"><img src="250lir.png"><span>729 ₽</span></div>
       <div class="card"><img src="500lir.png"><span>1479 ₽</span></div>
