@@ -97,14 +97,14 @@
       color: var(--primary);
     }
 
-    .faq, .auth, .profile {
+    .faq, .auth, .profile, .support, .reviews {
       background: var(--card-light);
       border-radius: 12px;
       padding: 16px;
       margin-top: 32px;
     }
 
-    body.dark .faq, body.dark .auth, body.dark .profile {
+    body.dark .faq, body.dark .auth, body.dark .profile, body.dark .support, body.dark .reviews {
       background: var(--card-dark);
     }
 
@@ -132,6 +132,14 @@
       margin-bottom: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -179,10 +187,27 @@
 
     <div class="profile">
       <h3>Профиль</h3>
+      <label for="avatar-input">
+        <img src="avatar.png" class="avatar" alt="Аватар">
+      </label>
+      <input type="file" id="avatar-input" style="display:none">
       <input type="text" placeholder="Никнейм">
-      <input type="file">
       <button class="btn">Сохранить</button>
       <button class="btn" style="background:#e11d48;">Выйти</button>
+    </div>
+
+    <div class="reviews">
+      <h3>Отзывы</h3>
+      <p>Нам бесконечно важно мнение клиентов нашего сервиса пополнения для игр. Мы регулярно работаем над качеством и улучшением вашего опыта использования магазина, поэтому мы будем очень рады, если вы поделитесь своим отзывом с другими пользователями (｡•́︿•̀｡)</p>
+      <a href="https://t.me/oneGGame" class="btn">Читать отзывы в Telegram</a>
+    </div>
+
+    <div class="support">
+      <h3>Поддержка</h3>
+      <p>Проблема с заказом? Если ваш заказ находится в доставке, то пожалуйста, ожидайте его завершения. В скором времени он будет доставлен. Во время игровых событий время доставки может быть увеличено.</p>
+      <p><strong>Режим работы поддержки:</strong><br>9:00 — 23:59 (MSK)</p>
+      <a href="support.html" class="btn">Написать поддержке</a>
+      <a href="https://t.me/onegame_support" class="btn">Поддержка в Telegram</a>
     </div>
 
     <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
