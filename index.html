@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneGame — Турция</title>
+  <title>OneGame — Магазин</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -97,22 +97,22 @@
       color: var(--primary);
     }
 
-    footer {
-      text-align: center;
-      font-size: 14px;
-      padding: 24px;
-      color: #888;
-    }
-
-    .faq {
+    .faq, .auth, .profile {
       background: var(--card-light);
       border-radius: 12px;
       padding: 16px;
       margin-top: 32px;
     }
 
-    body.dark .faq {
+    body.dark .faq, body.dark .auth, body.dark .profile {
       background: var(--card-dark);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 24px;
+      color: #888;
     }
 
     .btn {
@@ -124,6 +124,15 @@
       border-radius: 8px;
       text-decoration: none;
     }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -133,6 +142,15 @@
   </header>
 
   <div class="container">
+    <h2>Индийские подарочные карты PSN</h2>
+    <div class="grid">
+      <div class="card"><img src="1000.png"><span>1000 INR — 1240 ₽</span></div>
+      <div class="card"><img src="2000.png"><span>2000 INR — 2380 ₽</span></div>
+      <div class="card"><img src="3000.png"><span>3000 INR — 3490 ₽</span></div>
+      <div class="card"><img src="4000.png"><span>4000 INR — 4740 ₽</span></div>
+      <div class="card"><img src="5000.png"><span>5000 INR — 5990 ₽</span></div>
+    </div>
+
     <h2>Турецкие подарочные карты PSN</h2>
     <div class="grid">
       <div class="card"><img src="250lir.png"><span>250 лир — 729 ₽</span></div>
@@ -149,6 +167,22 @@
     <div class="faq">
       <h3>FAQ</h3>
       <p>Создание иностранного аккаунта при покупке вместе с товаром в нашем магазине — <strong>бесплатно</strong> 🎁</p>
+    </div>
+
+    <div class="auth">
+      <h3>Регистрация / Вход</h3>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Пароль">
+      <button class="btn">Зарегистрироваться</button>
+      <button class="btn">Войти</button>
+    </div>
+
+    <div class="profile">
+      <h3>Профиль</h3>
+      <input type="text" placeholder="Никнейм">
+      <input type="file">
+      <button class="btn">Сохранить</button>
+      <button class="btn" style="background:#e11d48;">Выйти</button>
     </div>
 
     <a href="https://t.me/onegame_support" class="btn">Купить в Telegram</a>
