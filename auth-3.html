@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход и регистрация — OneGame</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0e0f11;
+      --text-light: #ffffff;
+      --card-dark: #1c1d22;
+      --primary: #0ea5e9;
+      --green: #4ade80;
+      --border: #2a2b31;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .auth-container {
+      background-color: var(--card-dark);
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+      color: var(--green);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background-color: #2a2b31;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Вход</h2>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Пароль">
+    <button onclick="loginUser()">Войти</button>
+
+    <h2>Регистрация</h2>
+    <input type="email" id="reg-email" placeholder="Email">
+    <input type="password" id="reg-password" placeholder="Пароль">
+    <button onclick="registerUser()">Зарегистрироваться</button>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDYc7TRRUrP9aYQFUlelEn4zjsOfxR5UNI",
+      authDomain: "onetime-b8919.firebaseapp.com",
+      projectId: "onetime-b8919",
+      storageBucket: "onetime-b8919.appspot.com",
+      messagingSenderId: "425030932286",
+      appId: "1:425030932286:web:7d5960ebcdd4759568fe6f",
+      measurementId: "G-1LZV2ETTS3"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function registerUser() {
+      const email = document.getElementById("reg-email").value;
+      const password = document.getElementById("reg-password").value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Регистрация успешна!");
+          window.location.href = "index.html";
+        })
+        .catch((error) => alert("Ошибка: " + error.message));
+    }
+
+    function loginUser() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Вход выполнен!");
+          window.location.href = "index.html";
+        })
+        .catch((error) => alert("Ошибка: " + error.message));
+    }
+  </script>
+</body>
+</html>
