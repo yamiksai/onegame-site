@@ -10,71 +10,78 @@
 <style>
   :root{
     --bg:#0b0f17; --card:#121826; --card-2:#0f1624;
-    --accent:#3ea6ff; --accent-2:#5ce1ff;
-    --text:#e8eef7; --muted:#aab5c4; --btn:#1f6fff;
-    --radius:16px; --shadow:0 6px 30px rgba(0,0,0,.45);
-    --panel:#141a2a; --panel-2:#0f1624; --panel-soft:#101829;
+    --accent:#3ea6ff; --text:#e8eef7; --muted:#aab5c4; --btn:#1f6fff;
+    --shadow:0 6px 30px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
     margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
+    /* единый мягкий фон без видимых границ между секциями */
     background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(62,166,255,.18), transparent 60%),
-      radial-gradient(1000px 500px at 0% 100%, rgba(92,225,255,.12), transparent 60%),
-      var(--bg);
+      radial-gradient(1100px 520px at 80% -10%, rgba(62,166,255,.14), transparent 60%),
+      radial-gradient(900px 420px at 0% 100%, rgba(92,225,255,.10), transparent 60%),
+      #0b0f17;
+    background-repeat:no-repeat;
   }
-  header{position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
+
+  header{
+    position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
     background: linear-gradient(180deg, rgba(11,15,23,.75), rgba(11,15,23,.45));
-    border-bottom:1px solid rgba(255,255,255,.06);}
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
   .container{max-width:1120px; margin:0 auto; padding:14px 20px;}
   .brand{display:inline-flex; align-items:center; gap:10px; font-weight:600; letter-spacing:.3px; text-decoration:none; color:var(--text)}
   .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 20px var(--accent)}
+
   .hero{padding:24px 20px 6px; text-align:center}
   .title{font-size:clamp(22px,3.3vw,34px); margin:8px 0 4px}
   .subtitle{color:var(--muted); font-size:clamp(14px,2.3vw,16px); margin:0 0 18px}
   .cta{display:inline-flex; gap:10px; align-items:center; padding:10px 16px; border-radius:12px;
        background:linear-gradient(135deg, var(--btn), var(--accent)); color:#fff; text-decoration:none; font-weight:600; box-shadow: var(--shadow);}
+
   .section{max-width:1120px; margin:22px auto 8px; padding:0 20px}
   .section h2{margin:10px 0 12px; font-size:18px; letter-spacing:.4px}
 
-  /* сетка карт */
+  /* сетка карточек */
   .grid{display:grid; gap:14px; grid-template-columns: repeat(auto-fill, minmax(140px,1fr));}
-  .card{background:linear-gradient(180deg, var(--card), var(--card-2));
-    border:1px solid rgba(255,255,255,.06); border-radius:14px; box-shadow:var(--shadow); overflow:hidden;
-    transition:.25s; animation:rise .45s ease both}
+  .card{
+    background:linear-gradient(180deg, var(--card), var(--card-2));
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px; box-shadow:var(--shadow); overflow:hidden;
+    transition:.25s; animation:rise .45s ease both;
+  }
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   .card:hover{transform:translateY(-3px); box-shadow:0 10px 36px rgba(30,122,255,.22); border-color:rgba(90,200,255,.22)}
   .img-wrap{aspect-ratio:3/4; background:#0b1020; display:flex; align-items:center; justify-content:center; padding:8px}
   .img-wrap img{width:100%; height:100%; object-fit:contain; display:block}
-  .info{padding:10px 12px 12px; text-align:center}
-  .price{font-weight:500; color:#eaf4ff; letter-spacing:.2px; font-size:14px}
+  .info{padding:10px 12px 14px; text-align:center}
+  .price{font-weight:500; color:#eaf4ff; letter-spacing:.2px; font-size:14px; margin-bottom:10px;} /* как раньше — есть зазор над кнопкой */
+
   .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
        padding:9px 12px; background:linear-gradient(135deg, rgba(31,111,255,.95), rgba(62,166,255,.95));
        color:#fff; text-decoration:none; border-radius:10px; font-weight:600; font-size:14px; transition:.15s}
   .btn:hover{transform:translateY(-1px); filter:brightness(1.05)}
 
-  /* список подписок (фикс переносов) */
+  /* список подписок */
   .planlist{display:grid; gap:16px}
   .planlist .region{font-weight:600; margin:6px 0 4px;}
   .line{
     display:grid; grid-template-columns: 1fr auto auto; align-items:center; gap:12px;
-    background:linear-gradient(180deg, var(--panel), var(--panel-2));
+    background:linear-gradient(180deg, #141a2a, #0f1624); /* тот же тон — без «полос» */
     border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:10px 12px;
   }
   .line .name{
     font-size:14px; line-height:1.2; overflow:hidden;
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; /* максимум 2 строки */
   }
   .line .price{font-weight:600; font-size:14px; color:#eaf4ff; white-space:nowrap}
   .line .btn{padding:7px 10px; font-size:13px; border-radius:8px; white-space:nowrap}
 
-  /* преимущества */
-  .advantages{margin-top:26px; padding:18px; border-radius:18px;
-    background:linear-gradient(180deg, #101829, #0e1530);
-    border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+  /* преимущества — без отдельной подложки, чтобы фон был ровным */
+  .advantages{margin-top:26px;}
   .adv-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .adv{background:linear-gradient(180deg,#141a2a,#0f1624); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px}
+  .adv{background:linear-gradient(180deg,#141a2a,#0f1624); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
   .adv h3{margin:0 0 8px; font-size:16px}
   .adv ul{margin:0; padding-left:16px; color:var(--muted); font-size:14px}
   .adv li{margin:6px 0}
@@ -89,6 +96,11 @@
   .out{font-size:16px; font-weight:600; color:#eaf4ff; padding:8px 0 0}
 
   footer{padding:30px 20px 40px; color:var(--muted); text-align:center; font-size:13px}
+
+  @media (max-width:520px){
+    .grid{grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap:12px}
+    .btn{padding:9px 10px}
+  }
 </style>
 </head>
 <body>
