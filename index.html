@@ -1,80 +1,117 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OneGame — Подарочные карты</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OneGame — Подарочные карты PlayStation (Турция / Индия)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #0b0f17, #1b2735);
-        color: #fff;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        text-align: center;
-        padding: 20px;
-    }
-    h1 {
-        font-size: 2em;
-        margin-bottom: 5px;
-    }
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        max-width: 1100px;
-        margin: auto;
-    }
-    .card {
-        background: #121826;
-        border-radius: 12px;
-        overflow: hidden;
-        text-align: center;
-        transition: transform 0.2s ease;
-    }
-    .card:hover {
-        transform: scale(1.03);
-    }
-    .card img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-    .price {
-        padding: 10px;
-        font-size: 1.1em;
-        color: #5ce1ff;
-    }
+  :root{
+    --bg:#0b0f17; --card:#121826; --card-2:#0f1624;
+    --accent:#3ea6ff; --accent-2:#5ce1ff;
+    --text:#e8eef7; --muted:#aab5c4; --btn:#1f6fff;
+    --radius:16px; --shadow:0 6px 30px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(62,166,255,.18), transparent 60%),
+      radial-gradient(1000px 500px at 0% 100%, rgba(92,225,255,.12), transparent 60%),
+      var(--bg);
+  }
+  header{
+    position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(11,15,23,.75), rgba(11,15,23,.45));
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .container{max-width:1120px; margin:0 auto; padding:18px 20px;}
+  .brand{display:flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.3px;}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 20px var(--accent)}
+  .hero{padding:28px 20px 10px; text-align:center}
+  .title{font-size:clamp(22px,3.3vw,34px); margin:10px 0 6px}
+  .subtitle{color:var(--muted); font-size:clamp(14px,2.3vw,16px); margin:0 0 20px}
+  .cta{display:inline-flex; gap:10px; align-items:center; padding:10px 16px; border-radius:12px;
+       background:linear-gradient(135deg, var(--btn), var(--accent)); color:#fff; text-decoration:none; font-weight:600; box-shadow: var(--shadow);}
+  .grid{
+    display:grid; gap:18px; padding:26px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  }
+  .section-title{margin:10px 20px 0; font-size:18px; letter-spacing:.4px}
+  .card{
+    background:linear-gradient(180deg, var(--card), var(--card-2));
+    border:1px solid rgba(255,255,255,.06);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    transform: translateY(0);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    will-change: transform;
+    animation: rise .55s ease both;
+  }
+  @keyframes rise{from{opacity:.0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
+  .card:hover{transform: translateY(-4px); box-shadow: 0 10px 40px rgba(30,122,255,.22); border-color: rgba(90,200,255,.25)}
+  .img-wrap{aspect-ratio: 3 / 2; background:#0b1020; display:flex; align-items:center; justify-content:center}
+  .img-wrap img{width:100%; height:100%; object-fit:cover; display:block}
+  .info{padding:12px 14px 16px}
+  .price{margin-top:10px; font-weight:500; color:#eaf4ff; letter-spacing:.2px}
+  .btn{
+    margin-top:12px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:10px 14px; width:100%;
+    background: linear-gradient(135deg, rgba(31,111,255,.95), rgba(62,166,255,.95));
+    color:#fff; text-decoration:none; border-radius:10px; font-weight:600;
+    transition: transform .15s ease, filter .2s ease;
+  }
+  .btn:hover{transform: translateY(-1px); filter:brightness(1.05)}
+  footer{padding:30px 20px 40px; color:var(--muted); text-align:center; font-size:13px}
+  @media (max-width:520px){
+    .grid{gap:14px; padding:18px 14px}
+    .info{padding:10px 12px 14px}
+    .btn{padding:10px 12px}
+  }
 </style>
 </head>
 <body>
 <header>
-    <h1>🎮 Подарочные карты PlayStation</h1>
-    <p>Турция 🇹🇷 и Индия 🇮🇳</p>
+  <div class="container brand">
+    <span class="dot"></span>
+    <span>OneGame — подарочные карты PlayStation</span>
+  </div>
 </header>
 
-<section class="cards">
-    <!-- Турция -->
-    <div class="card"><img src="250lir.png" alt="250 лир"><div class="price">729 ₽</div></div>
-    <div class="card"><img src="500lir.png" alt="500 лир"><div class="price">1 479 ₽</div></div>
-    <div class="card"><img src="750lir.png" alt="750 лир"><div class="price">2 299 ₽</div></div>
-    <div class="card"><img src="1000lir.png" alt="1000 лир"><div class="price">2 999 ₽</div></div>
-    <div class="card"><img src="1500lir.png" alt="1500 лир"><div class="price">4 399 ₽</div></div>
-    <div class="card"><img src="2000lir.png" alt="2000 лир"><div class="price">5 799 ₽</div></div>
-    <div class="card"><img src="3000lir.png" alt="3000 лир"><div class="price">8 299 ₽</div></div>
-    <div class="card"><img src="4000lir.png" alt="4000 лир"><div class="price">10 799 ₽</div></div>
-    <div class="card"><img src="5000lir.png" alt="5000 лир"><div class="price">13 299 ₽</div></div>
-
-    <!-- Индия -->
-    <div class="card"><img src="1000.png" alt="1000 рупий"><div class="price">1 190 ₽</div></div>
-    <div class="card"><img src="2000.png" alt="2000 рупий"><div class="price">2 360 ₽</div></div>
-    <div class="card"><img src="3000.png" alt="3000 рупий"><div class="price">3 420 ₽</div></div>
-    <div class="card"><img src="4000.png" alt="4000 рупий"><div class="price">4 530 ₽</div></div>
-    <div class="card"><img src="5000.png" alt="5000 рупий"><div class="price">5 660 ₽</div></div>
+<section class="hero">
+  <h1 class="title">Каталог подарочных карт · PlayStation</h1>
+  <p class="subtitle">Турция · Индия · моментальный заказ через Telegram</p>
+  <a class="cta" href="https://t.me/onegameps_bot" target="_blank" rel="noopener">Купить в Telegram</a>
 </section>
 
+<h2 class="section-title">🇹🇷 Турция</h2>
+<div class="grid">
+  <article class="card"><div class="img-wrap"><img src="250lir.png" alt="250 лир"></div><div class="info"><div class="price">250 лир — 729 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="500lir.png" alt="500 лир"></div><div class="info"><div class="price">500 лир — 1 479 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="750lir.png" alt="750 лир"></div><div class="info"><div class="price">750 лир — 2 299 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="1000lir.png" alt="1000 лир"></div><div class="info"><div class="price">1000 лир — 2 999 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="1500lir.png" alt="1500 лир"></div><div class="info"><div class="price">1500 лир — 4 399 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="2000lir.png" alt="2000 лир"></div><div class="info"><div class="price">2000 лир — 5 799 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="3000lir.png" alt="3000 лир"></div><div class="info"><div class="price">3000 лир — 8 299 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="4000lir.png" alt="4000 лир"></div><div class="info"><div class="price">4000 лир — 10 799 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="5000lir.png" alt="5000 лир"></div><div class="info"><div class="price">5000 лир — 13 299 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+</div>
+
+<h2 class="section-title">🇮🇳 Индия</h2>
+<div class="grid">
+  <article class="card"><div class="img-wrap"><img src="1000.png" alt="1000 рупий"></div><div class="info"><div class="price">1000 рупий — 1 190 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="2000.png" alt="2000 рупий"></div><div class="info"><div class="price">2000 рупий — 2 360 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="3000.png" alt="3000 рупий"></div><div class="info"><div class="price">3000 рупий — 3 420 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="4000.png" alt="4000 рупий"></div><div class="info"><div class="price">4000 рупий — 4 530 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+  <article class="card"><div class="img-wrap"><img src="5000.png" alt="5000 рупий"></div><div class="info"><div class="price">5000 рупий — 5 660 рублей</div><a class="btn" href="https://t.me/onegameps_bot" target="_blank">Купить в Telegram</a></div></article>
+</div>
+
+<footer>
+  Цены актуальны на момент публикации. Оплата и оформление — через @onegameps_bot
+</footer>
 </body>
 </html>
