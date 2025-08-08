@@ -1,1 +1,82 @@
-duhdjd
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поддержка — OneGame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f17; --text:#e8eef7; --muted:#aab5c4; --outline:#cfd6e3;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
+    background:
+      radial-gradient(1100px 520px at 80% -10%, rgba(62,166,255,.14), transparent 60%),
+      radial-gradient(900px 420px at 0% 100%, rgba(92,225,255,.10), transparent 60%),
+      #0b0f17;
+  }
+  header{
+    position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(11,15,23,.75), rgba(11,15,23,.45));
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .container{max-width:860px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:inline-flex; align-items:center; gap:10px; font-weight:600; text-decoration:none; color:var(--text)}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:#3ea6ff; box-shadow:0 0 20px #3ea6ff}
+  .top-links a{color:#eaf4ff; text-decoration:none; opacity:.9; font-weight:500; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.14);}
+  .top-links a:hover{opacity:1; background:rgba(255,255,255,.05)}
+
+  main{max-width:860px; margin:24px auto; padding:0 20px}
+  h1{font-size:clamp(22px,3.2vw,32px); margin:10px 0 6px; text-align:left}
+  p{color:var(--muted); font-size:16px; line-height:1.55}
+
+  .support-card{
+    margin-top:18px; padding:18px; border-radius:18px;
+    background:linear-gradient(180deg,#141a2a,#0f1624);
+    border:1px solid rgba(255,255,255,.06);
+  }
+  .big-btn{
+    display:inline-flex; align-items:center; gap:12px; padding:14px 22px;
+    border-radius:999px; border:2px solid var(--outline); color:#eaf4ff; text-decoration:none;
+    font-weight:600; font-size:18px; background:transparent;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .big-btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.04); border-color:#eaf4ff}
+  .big-btn .icon{font-size:20px; opacity:.9}
+  footer{padding:30px 20px 40px; color:var(--muted); text-align:center; font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="brand" href="index.html"><span class="dot"></span><span>OneGame</span></a>
+    <nav class="top-links">
+      <a href="support.html" aria-current="page">Поддержка</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Проблема с заказом?</h1>
+
+  <div class="support-card">
+    <p>Если ваш заказ находится в доставке, пожалуйста, ожидайте его завершения — в скором времени он будет доставлен. Во время игровых событий время доставки может быть увеличено.</p>
+    <p>Если у вас остались дополнительные вопросы — можете обратиться к нашей поддержке.</p>
+
+    <p style="margin-top:16px;">
+      <a class="big-btn" href="https://t.me/onegame_support" target="_blank" rel="noopener">
+        <span class="icon">✈️</span> Поддержка в Telegram
+      </a>
+    </p>
+  </div>
+</main>
+
+<footer>onegame 2025 — все права защищены</footer>
+
+</body>
+</html>
