@@ -17,7 +17,6 @@
   html,body{height:100%}
   body{
     margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
-    /* единый мягкий фон без видимых границ между секциями */
     background:
       radial-gradient(1100px 520px at 80% -10%, rgba(62,166,255,.14), transparent 60%),
       radial-gradient(900px 420px at 0% 100%, rgba(92,225,255,.10), transparent 60%),
@@ -30,9 +29,11 @@
     background: linear-gradient(180deg, rgba(11,15,23,.75), rgba(11,15,23,.45));
     border-bottom:1px solid rgba(255,255,255,.06);
   }
-  .container{max-width:1120px; margin:0 auto; padding:14px 20px;}
+  .container{max-width:1120px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between;}
   .brand{display:inline-flex; align-items:center; gap:10px; font-weight:600; letter-spacing:.3px; text-decoration:none; color:var(--text)}
   .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 20px var(--accent)}
+  .top-links a{color:#eaf4ff; text-decoration:none; opacity:.9; font-weight:500; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.14);}
+  .top-links a:hover{opacity:1; background:rgba(255,255,255,.05)}
 
   .hero{padding:24px 20px 6px; text-align:center}
   .title{font-size:clamp(22px,3.3vw,34px); margin:8px 0 4px}
@@ -56,7 +57,7 @@
   .img-wrap{aspect-ratio:3/4; background:#0b1020; display:flex; align-items:center; justify-content:center; padding:8px}
   .img-wrap img{width:100%; height:100%; object-fit:contain; display:block}
   .info{padding:10px 12px 14px; text-align:center}
-  .price{font-weight:500; color:#eaf4ff; letter-spacing:.2px; font-size:14px; margin-bottom:10px;} /* как раньше — есть зазор над кнопкой */
+  .price{font-weight:500; color:#eaf4ff; letter-spacing:.2px; font-size:14px; margin-bottom:10px;}
 
   .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px;
        padding:9px 12px; background:linear-gradient(135deg, rgba(31,111,255,.95), rgba(62,166,255,.95));
@@ -68,17 +69,17 @@
   .planlist .region{font-weight:600; margin:6px 0 4px;}
   .line{
     display:grid; grid-template-columns: 1fr auto auto; align-items:center; gap:12px;
-    background:linear-gradient(180deg, #141a2a, #0f1624); /* тот же тон — без «полос» */
+    background:linear-gradient(180deg, #141a2a, #0f1624);
     border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:10px 12px;
   }
   .line .name{
     font-size:14px; line-height:1.2; overflow:hidden;
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; /* максимум 2 строки */
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
   }
   .line .price{font-weight:600; font-size:14px; color:#eaf4ff; white-space:nowrap}
   .line .btn{padding:7px 10px; font-size:13px; border-radius:8px; white-space:nowrap}
 
-  /* преимущества — без отдельной подложки, чтобы фон был ровным */
+  /* преимущества */
   .advantages{margin-top:26px;}
   .adv-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
   .adv{background:linear-gradient(180deg,#141a2a,#0f1624); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
@@ -108,6 +109,9 @@
 <header>
   <div class="container">
     <a class="brand" href="index.html"><span class="dot"></span><span>OneGame</span></a>
+    <nav class="top-links">
+      <a href="support.html">Поддержка</a>
+    </nav>
   </div>
 </header>
 
@@ -117,7 +121,7 @@
   <a class="cta" href="https://t.me/onegameps_bot" target="_blank" rel="noopener">Купить в Telegram</a>
 </section>
 
-<!-- ТУРЦИЯ КАРТЫ -->
+<!-- ТУРЦИЯ -->
 <section class="section">
   <h2>Турецкий регион 🇹🇷</h2>
   <div class="grid">
@@ -133,7 +137,7 @@
   </div>
 </section>
 
-<!-- ИНДИЯ КАРТЫ -->
+<!-- ИНДИЯ -->
 <section class="section" style="margin-top:26px">
   <h2>Индийский регион 🇮🇳</h2>
   <div class="grid">
@@ -218,7 +222,7 @@
 <footer>onegame 2025 — все права защищены</footer>
 
 <script>
-  // расчёт для UA (пороговый курс, без отображения самого курса)
+  // расчёт для UA (пороговый курс)
   const uah = document.getElementById('uah');
   const rub = document.getElementById('rub');
   function calc(){
