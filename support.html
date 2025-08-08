@@ -9,7 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0f17; --text:#e8eef7; --muted:#aab5c4; --outline:#cfd6e3;
+    --bg:#0b0f17; --text:#e8eef7; --muted:#aab5c4;
+    --panel1:#141a2a; --panel2:#0f1624; --line:rgba(255,255,255,.12);
+    --brand:#3ea6ff;
   }
   *{box-sizing:border-box}
   body{
@@ -19,6 +21,7 @@
       radial-gradient(900px 420px at 0% 100%, rgba(92,225,255,.10), transparent 60%),
       #0b0f17;
   }
+  /* header */
   header{
     position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
     background: linear-gradient(180deg, rgba(11,15,23,.75), rgba(11,15,23,.45));
@@ -28,25 +31,52 @@
   .brand{display:inline-flex; align-items:center; gap:10px; font-weight:600; text-decoration:none; color:var(--text)}
   .brand .dot{width:10px; height:10px; border-radius:50%; background:#3ea6ff; box-shadow:0 0 20px #3ea6ff}
   .top-links a{color:#eaf4ff; text-decoration:none; opacity:.9; font-weight:500; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.14);}
+  .top-links a[aria-current="page"]{background:rgba(255,255,255,.06)}
   .top-links a:hover{opacity:1; background:rgba(255,255,255,.05)}
 
   main{max-width:860px; margin:24px auto; padding:0 20px}
-  h1{font-size:clamp(22px,3.2vw,32px); margin:10px 0 6px; text-align:left}
+  h1{font-size:clamp(22px,3.2vw,32px); margin:10px 0 6px}
   p{color:var(--muted); font-size:16px; line-height:1.55}
 
   .support-card{
     margin-top:18px; padding:18px; border-radius:18px;
-    background:linear-gradient(180deg,#141a2a,#0f1624);
+    background:linear-gradient(180deg,var(--panel1),var(--panel2));
     border:1px solid rgba(255,255,255,.06);
   }
+  /* лёгкая кнопка */
   .big-btn{
-    display:inline-flex; align-items:center; gap:12px; padding:14px 22px;
-    border-radius:999px; border:2px solid var(--outline); color:#eaf4ff; text-decoration:none;
-    font-weight:600; font-size:18px; background:transparent;
-    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:12px 18px; border-radius:999px;
+    border:1.5px solid #cfd6e3; color:#eaf4ff; text-decoration:none; font-weight:600; font-size:16px;
+    background:transparent; transition:transform .15s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
   }
   .big-btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.04); border-color:#eaf4ff}
-  .big-btn .icon{font-size:20px; opacity:.9}
+
+  /* FAQ */
+  .faq{margin:28px 0 10px}
+  .faq h2{font-size:20px; margin:0 0 12px}
+  details{
+    background:linear-gradient(180deg,var(--panel1),var(--panel2));
+    border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 14px; margin:10px 0;
+  }
+  summary{
+    cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; font-weight:600;
+  }
+  summary::-webkit-details-marker{display:none}
+  .chev{width:9px; height:9px; border-right:2px solid #cfd6e3; border-bottom:2px solid #cfd6e3; transform:rotate(-45deg); transition:transform .2s ease}
+  details[open] .chev{transform:rotate(45deg)}
+  .answer{color:var(--muted); padding:8px 2px 4px; line-height:1.55; font-size:15px; border-top:1px dashed rgba(255,255,255,.08); margin-top:10px}
+
+  /* канал */
+  .channel{display:flex; align-items:center; gap:12px; margin:26px 0 8px}
+  .channel img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:1px solid rgba(255,255,255,.08)}
+  .channel .title{font-weight:600}
+  .sub-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:8px 14px; border-radius:999px; border:1.5px solid #cfd6e3; color:#eaf4ff; text-decoration:none; font-weight:600; font-size:14px;
+    background:transparent; transition:background .15s ease, border-color .15s ease;
+  }
+  .sub-btn:hover{background:rgba(255,255,255,.05); border-color:#eaf4ff}
   footer{padding:30px 20px 40px; color:var(--muted); text-align:center; font-size:13px}
 </style>
 </head>
@@ -68,12 +98,94 @@
     <p>Если ваш заказ находится в доставке, пожалуйста, ожидайте его завершения — в скором времени он будет доставлен. Во время игровых событий время доставки может быть увеличено.</p>
     <p>Если у вас остались дополнительные вопросы — можете обратиться к нашей поддержке.</p>
 
-    <p style="margin-top:16px;">
-      <a class="big-btn" href="https://t.me/onegame_support" target="_blank" rel="noopener">
-        <span class="icon">✈️</span> Поддержка в Telegram
-      </a>
+    <p style="margin-top:14px;">
+      <a class="big-btn" href="https://t.me/onegame_support" target="_blank" rel="noopener">Поддержка в Telegram</a>
     </p>
   </div>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>FAQ — Часто задаваемые вопросы</h2>
+
+    <h3 style="margin:14px 0 6px; font-size:16px; color:#d7e4ff;">PlayStation Plus (общие вопросы)</h3>
+
+    <details>
+      <summary><span class="chev"></span>Нужна ли подписка PlayStation Plus, чтобы играть по сети?</summary>
+      <div class="answer">
+        Для большинства игр, которые вы приобрели на дисках или загрузили из PlayStation Store, необходим план подписки PlayStation Plus для игры по сети.
+        Для запуска большинства бесплатных игр (Fortnite, Apex Legends, Call of Duty Warzone) подписка не требуется.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Игры PlayStation Plus будут принадлежать мне всегда?</summary>
+      <div class="answer">
+        Да — пока вы остаётесь действующим подписчиком. У некоторых игр из каталога игр и каталога классики отображается дата окончания,
+        когда они перестанут быть доступны в рамках подписки. Эта дата публикуется заранее.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Какие скидки доступны подписчикам?</summary>
+      <div class="answer">
+        Подписчики PlayStation Plus получают эксклюзивные скидки в PlayStation Store, а также дополнительные скидки на уже уценённые игры.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Как понизить уровень подписки (Люкс/Экстра → ниже)?</summary>
+      <div class="answer">
+        На PS4/PS5: «Настройки учётной записи» → «Управление подписками».<br>
+        В браузере: войдите в свою учётную запись PSN и откройте раздел «Управление подписками».<br><br>
+        Смена плана произойдёт по окончании текущего оплаченного периода — доступ к преимуществам предыдущего уровня будет прекращён.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Как часто обновляются игры в PlayStation Plus?</summary>
+      <div class="answer">
+        Игры по подписке обновляются каждый месяц независимо от выбранного плана.
+      </div>
+    </details>
+
+    <h3 style="margin:16px 0 6px; font-size:16px; color:#d7e4ff;">Магазин OneGame</h3>
+
+    <details>
+      <summary><span class="chev"></span>Как долго выполняется заказ?</summary>
+      <div class="answer">
+        Обычно от 5 до 60 минут после оплаты. Во время крупных распродаж или праздников возможны задержки.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Не обман?</summary>
+      <div class="answer">
+        Магазин работает с 2022 года, выполнено более 15 000 заказов. У нас есть группа с ~5000 отзывов:
+        <a href="https://t.me/oneGGame" target="_blank" rel="noopener">t.me/oneGGame</a>.
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Не забанят?</summary>
+      <div class="answer">
+        Периодически появляются слухи о массовых блокировках аккаунтов — на нашей памяти таких случаев не было.
+        Мы вручную создаём аккаунты и выдаём все данные. Следуйте правилам использования — и повода для бана не будет.
+      </div>
+    </details>
+  </section>
+
+  <!-- Канал -->
+  <div class="support-card" style="display:flex; align-items:center; justify-content:space-between; gap:14px;">
+    <div class="channel">
+      <img src="og-channel.jpg" alt="OneGame канал">
+      <div>
+        <div class="title">Основной канал в Telegram</div>
+        <div style="color:var(--muted); font-size:14px">Новости, скидки, важные обновления</div>
+      </div>
+    </div>
+    <a class="sub-btn" href="https://t.me/onegameturkey" target="_blank" rel="noopener">Подписаться</a>
+  </div>
+
 </main>
 
 <footer>onegame 2025 — все права защищены</footer>
